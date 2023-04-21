@@ -1,0 +1,10 @@
+
+Funtion mostrardatos(){ 
+    Nombre
+    Apellido
+    Edad
+
+}
+int mivariable=Nombre
+int mivariable=Apellido
+int mivariable=Edad
