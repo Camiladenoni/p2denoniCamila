@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consulta de personajes de Rick and Morty</title>
+</head>
+<body>
+  <h1>Consulta de personajes de Rick and Morty</h1>
+  <form>
+    <label for="numero">Ingrese un número:</label>
+    <input type="text" id="numero" name="numero"><br><br>
+    <button type="button" onclick="consultar()">Consultar</button>
+  </form>
+  <div id="resultado"></div>
+  <script>
+    function consultar() {
+      var numero = document.getElementById("numero").value;
+      fetch(`https://rickandmortyapi.com/api/character/${numero}`)
+        .then(response => response.json())
+        .then(data => {
+          var resultado = `
+            <h2>${data.name}</h2>
+            <p>Estado: ${data.status}</p>
+            <p>Especie: ${data.species}</p>
+            <p>Ciudad: ${data.location.name}</p>
+            <img src="${data.image}">
+          `;
+          document.getElementById("resultado").innerHTML = resultado;
+        })
+        .catch(error => console.error(error));
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>
